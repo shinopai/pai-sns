@@ -1,0 +1,906 @@
+@import "_basic";
+
+/* topへ戻るボタン */
+.back-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 2;
+  @include mq(w-768) {
+    width: 65px;
+  }
+}
+
+/* header */
+.header {
+  background-color: $basic-pale-blue;
+  &-upper {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    &__logo {
+      width: min(43.1%, 530px);
+      @include mq(w-768) {
+        width: min(100%, 530px);
+        margin: 0 auto;
+      }
+    }
+    &__btns {
+      column-gap: 20px;
+      li {
+        a {
+          @include basic-btn;
+          @include fs-13;
+          color: $basic-cyan-blue;
+          width: 200px;
+          padding: 10px;
+          position: relative;
+          &.inquiry {
+            background-color: #9bcdf5;
+          }
+          &.login {
+            background-color: transparent;
+            border: 1px solid $basic-cyan-blue;
+          }
+        }
+      }
+      @include mq(w-768) {
+        display: none;
+      }
+    }
+  }
+  &-lower {
+    margin-top: 30px;
+    &__inner {
+      column-gap: 20px;
+      align-items: center;
+      padding-bottom: min(10%, 100px);
+      @include mq(w-960) {
+        flex-direction: column;
+        row-gap: 30px;
+      }
+    }
+    &__container {
+      width: 44.5%;
+      figure {
+        @include mq(w-960) {
+          max-width: 500px;
+          margin: 0 auto;
+        }
+      }
+      p {
+        &:first-of-type {
+          color: $basic-cyan-blue;
+          @include fs-16;
+          font-weight: 700;
+          text-align: center;
+          margin-top: 30px;
+        }
+        &:nth-of-type(2) {
+          color: $basic-red;
+          @include fs-15;
+          font-weight: 700;
+          width: fit-content;
+          margin: 30px auto 0;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 37%;
+            right: -1.7em;
+            display: inline-block;
+            width: 21px;
+            height: 1px;
+            background-color: $basic-red;
+            transform: rotate(-60deg);
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 37%;
+            left: -1.7em;
+            display: inline-block;
+            width: 21px;
+            height: 1px;
+            background-color: $basic-red;
+            transform: rotate(60deg);
+          }
+        }
+      }
+      a {
+        @include basic-btn;
+        @include fs-24;
+        color: #fff;
+        font-weight: 700;
+        padding: 20px 10px;
+        max-width: 450px;
+        margin: 0 auto;
+        &.started {
+          background-color: $basic-red;
+          margin-top: 10px;
+        }
+        &.download {
+          background-color: $basic-cyan-blue;
+          margin-top: 20px;
+        }
+      }
+      @include mq(w-960) {
+        width: 100%;
+      }
+    }
+    &__img {
+      flex-grow: 1;
+      @include mq(w-960) {
+        width: 100%;
+        img {
+          max-width: 500px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+/* sp menu */
+.sp-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  display: none;
+  a {
+    @include basic-btn;
+    @include fs-24;
+    border-radius: initial;
+    padding: 10px;
+    width: 50%;
+    &.inquiry {
+      background-color: #9bcdf5;
+    }
+    &.login {
+      background-color: #fff;
+    }
+    @include mq(w-520) {
+      width: 100%;
+      padding: 5px;
+    }
+  }
+  @include mq(w-768) {
+    display: flex;
+  }
+  @include mq(w-520) {
+    flex-direction: column;
+  }
+}
+
+/* resolution */
+.resolution {
+  &-upper {
+    background-color: $basic-cyan-blue;
+    &__heading {
+      @include basic-heading("../images/ico_front01.png");
+      color: #fff;
+      @include mq(w-678) {
+        text-align: center;
+      }
+    }
+    &__contents {
+      margin-top: 50px;
+      justify-content: space-between;
+      figure {
+        width: 25%;
+        img {
+          max-width: 180px;
+          margin: 0 auto;
+          @include mq(w-768) {
+            max-width: 300px;
+          }
+          @include mq(w-520) {
+            max-width: 250px;
+          }
+        }
+        figcaption {
+          @include fs-16;
+          color: #fff;
+          text-align: center;
+          margin-top: 30px;
+        }
+        @include mq(w-768) {
+          width: 47%;
+        }
+        @include mq(w-520) {
+          width: 100%;
+        }
+      }
+      @include mq(w-768) {
+        flex-wrap: wrap;
+        row-gap: 30px;
+      }
+      @include mq(w-520) {
+        flex-direction: column;
+      }
+    }
+    @include mq(w-768) {
+      padding: 120px 0 60px;
+    }
+    @include mq(w-520) {
+      padding-bottom: 100px;
+    }
+  }
+  &-lower {
+    &__heading {
+      @include basic-heading("../images/img_front07.png");
+      &::before {
+        width: 324px;
+        height: 108px;
+        top: -142px;
+        @include mq(w-960) {
+          top: -127px;
+        }
+        @include mq(w-768) {
+          top: -70%;
+        }
+        @include mq(w-520) {
+          width: 90%;
+          top: -54%;
+        }
+      }
+      span {
+        font-size: 1.6em;
+      }
+    }
+    &__inner {
+      background-color: #ebf0fa;
+      padding: 6.5%;
+      margin-top: 30px;
+    }
+    &__catch {
+      @include fs-24;
+      color: $basic-cyan-blue;
+      text-align: center;
+      font-weight: 700;
+      span {
+        font-size: 1.2em;
+      }
+    }
+    &__balloon {
+      position: relative;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 5%;
+      column-gap: 50px;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+      &.secondary {
+        margin-top: 50px;
+        & + .flex {
+          margin-top: 100px;
+          justify-content: space-between;
+          p {
+            font-weight: 700;
+            &:first-of-type {
+              @include fs-24;
+              line-height: 1;
+              width: fit-content;
+              margin-bottom: 0;
+              span {
+                background: linear-gradient(transparent 60%, #ffec9a 0%);
+                font-size: 1em;
+              }
+              @include mq(w-960) {
+                margin-top: 50px;
+              }
+              @include mq(w-520) {
+                width: 100%;
+              }
+            }
+            &:nth-of-type(2) {
+              @include fs-16;
+              span {
+                @include fs-13;
+                color: #969696;
+              }
+            }
+          }
+          @include mq(w-520) {
+            flex-direction: column;
+            row-gap: 90px;
+          }
+        }
+      }
+      &.no-pseudo {
+        width: 48%;
+        position: relative;
+        &::before,
+        &::after {
+          content: none;
+        }
+        @include mq(w-520) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        left: 50%;
+        transform: translateX(-44%);
+        bottom: -31px;
+        border-top: 25px solid rgba(0, 0, 0, 0.1);
+        border-right: 25px solid transparent;
+        border-left: 25px solid transparent;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -25px;
+        border-top: 25px solid #fff;
+        border-right: 25px solid transparent;
+        border-left: 25px solid transparent;
+      }
+      @include mq(w-1100) {
+        column-gap: 25px;
+      }
+      @include mq(w-520) {
+        flex-direction: column;
+      }
+    }
+    &__img {
+      @include mq(w-1100) {
+        width: 38.5%;
+      }
+      @include mq(w-520) {
+        width: min(100%, 250px);
+        margin: 0 auto;
+      }
+    }
+    &__mass {
+      justify-content: center;
+      p {
+        font-weight: 700;
+        &:first-of-type {
+          @include fs-24;
+          line-height: 1;
+          span {
+            background: linear-gradient(transparent 60%, #ffec9a 0%);
+            font-size: 1em;
+          }
+          @include mq(w-1100) {
+            width: fit-content;
+          }
+        }
+        &:nth-of-type(2) {
+          @include fs-16;
+          span {
+            @include fs-13;
+            color: #969696;
+          }
+        }
+      }
+      @include mq(w-1100) {
+        width: 61.5%;
+      }
+      @include mq(w-520) {
+        width: 100%;
+        align-items: center;
+      }
+    }
+    &__ico {
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      top: -55px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* モニタリアンの特徴 */
+.feature {
+  background-color: #ebf0fa;
+  &__heading {
+    @include basic-heading("../images/ico_front04.png");
+    @include mq(w-350) {
+      text-align: center;
+    }
+  }
+  &__contents {
+    margin-top: 50px;
+  }
+  &__item {
+    column-gap: 30px;
+    &:not(.last) {
+      margin-bottom: 30px;
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+      @include mq(w-520) {
+        flex-direction: column;
+      }
+    }
+    @include mq(w-520) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__img {
+    width: 50%;
+    @include mq(w-520) {
+      width: min(100%, 250px);
+    }
+  }
+  &__mass {
+    width: 50%;
+    justify-content: center;
+    p {
+      &:first-child {
+        @include fs-16;
+        background-color: #ffda36;
+        width: fit-content;
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 5px;
+        @include mq(w-768) {
+          margin-bottom: 0;
+        }
+      }
+      &:nth-child(2) {
+        @include fs-24;
+        color: $basic-cyan-blue;
+        font-weight: 700;
+        margin-top: 10px;
+        @include mq(w-768) {
+          margin-bottom: 0;
+        }
+      }
+      &:nth-child(3) {
+        @include fs-16;
+        line-height: 1.8;
+        span {
+          font-weight: 700;
+          font-size: 1em;
+          background: linear-gradient(transparent 60%, #9bcdf5 0%);
+        }
+      }
+    }
+    @include mq(w-520) {
+      width: 100%;
+    }
+  }
+  @include mq(w-768) {
+    padding: 100px 0;
+  }
+}
+
+/* モニタリアン導入までの流れ */
+.flow {
+  background-color: $basic-cyan-blue;
+  &__heading {
+    @include basic-heading("../images/ico_front05.png");
+    color: #fff;
+    @include mq(w-520) {
+      text-align: center;
+    }
+  }
+  &__txt-img {
+    margin: 50px auto 0;
+    width: min(100%, 430px);
+  }
+  &__contents {
+    margin-top: 50px;
+  }
+  &__balloon {
+    @extend .resolution-lower__balloon;
+    padding: 5% 3%;
+    &:not(.last) {
+      margin-bottom: 50px;
+    }
+    &--upper {
+      gap: 30px;
+      @include mq(w-520) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &--lower {
+      margin-top: 30px;
+      p {
+        @include fs-16;
+        font-weight: 700;
+        line-height: 1.8;
+        span {
+          @include fs-13;
+          color: #969696;
+        }
+      }
+    }
+  }
+  &__mass {
+    flex-grow: 1;
+    p {
+      &:first-child {
+        @include fs-16;
+        background-color: #ffda36;
+        width: fit-content;
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      &:nth-child(2) {
+        @include fs-24;
+        color: $basic-cyan-blue;
+        font-weight: 700;
+
+        &.no-indent {
+          text-indent: -10px;
+        }
+      }
+    }
+    @include mq(w-960) {
+      width: 68.2%;
+    }
+    @include mq(w-520) {
+      width: 100%;
+    }
+  }
+  &__img {
+    width: 240px;
+    @include mq(w-520) {
+      width: min(100%, 250px);
+    }
+  }
+  @include mq(w-768) {
+    padding: 100px 0;
+  }
+}
+
+/* 料金プラン */
+.fee {
+  background-color: #ebf0fa;
+  &__heading {
+    @include basic-heading("../images/ico_front06.png");
+  }
+  &__table {
+    &-wrap {
+      @include mq(w-520) {
+        overflow-x: scroll;
+      }
+    }
+    margin-top: 150px;
+    border-collapse: collapse;
+    width: 100%;
+    th {
+      @include fs-14;
+      color: #fff;
+      width: 25%;
+      border: 2px solid #ebf0fa;
+      &.main-heading {
+        background-color: #333;
+      }
+      &.sub-heading {
+        background-color: $basic-cyan-blue;
+      }
+    }
+    td {
+      @include fs-16;
+      color: $basic-cyan-blue;
+      font-weight: bold;
+      background-color: #fff;
+      border: 2px solid #ebf0fa;
+      text-align: center;
+      padding: 15px;
+      span {
+        font-size: 1em;
+        background: linear-gradient(transparent 60%, #9bcdf5 60%);
+      }
+    }
+    &-heading {
+      position: relative;
+    }
+    @include mq(w-520) {
+      white-space: nowrap;
+    }
+  }
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    &.balloon-yellow {
+      width: 160px;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      @include mq(w-678) {
+        width: 100%;
+        bottom: 39px;
+        transform: translateX(-56%);
+      }
+    }
+    &.balloon-white {
+      width: 150px;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      @include mq(w-678) {
+        width: 100%;
+        bottom: 30px;
+        transform: translateX(-46%);
+      }
+    }
+  }
+  &__notes {
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 5% 3%;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+    &-heading {
+      @include fs-24;
+      font-weight: 700;
+      color: $basic-cyan-blue;
+      margin-top: 0;
+      text-align: center;
+    }
+    &-txt {
+      @include fs-16;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+  }
+  @include mq(w-768) {
+    padding: 100px 0;
+  }
+}
+
+/* よくある質問 */
+.faq {
+  &__heading {
+    @include basic-heading("../images/ico_front06.png");
+  }
+  &__contents {
+    margin-top: 50px;
+  }
+  &__item {
+    &:not(.last) {
+      margin-bottom: 30px;
+    }
+    &-upper {
+      background-color: $basic-cyan-blue;
+      color: #fff;
+      font-weight: 700;
+      align-items: center;
+      padding: 17px 6%;
+      gap: 30px;
+      position: relative;
+      cursor: pointer;
+      p {
+        @include fs-19;
+      }
+      span {
+        @include fs-21;
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          position: absolute;
+          right: 2.5em;
+          top: calc(50% - 20px / 2);
+          i {
+            @include fs-20;
+            @include mq(w-520) {
+              vertical-align: -90%;
+            }
+          }
+          @include mq(w-768) {
+            right: 1.5em;
+            top: calc(50% - 5px / 2);
+          }
+        }
+        &:nth-of-type(3) {
+          display: none;
+        }
+      }
+    }
+    &-lower {
+      padding: 17px 5%;
+      gap: 20px;
+      background-color: $basic-pale-blue;
+      align-items: baseline;
+      span {
+        @include fs-21;
+        font-weight: 700;
+        background-color: #ffda36;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 100vh;
+        padding: 10px;
+      }
+      p {
+        @include fs-18;
+
+        width: 96%;
+      }
+    }
+  }
+  @include mq(w-768) {
+    padding: 100px 0 50px;
+  }
+}
+
+/* クライアント */
+.client {
+  &__upper {
+    background-color: $basic-pale-blue;
+    padding: min(3%, 100px);
+    &-txt {
+      color: $basic-cyan-blue;
+      @include fs-19;
+      text-align: center;
+      font-weight: 700;
+
+      span {
+        font-size: 1.5em;
+        background: linear-gradient(transparent 60%, #ffec9a 0%);
+      }
+    }
+  }
+  &__lower {
+    padding: min(3%, 50px) 0;
+  }
+}
+
+/* cta */
+.cta {
+  background-color: $basic-cyan-blue;
+  &__contents {
+    @include mq(w-768) {
+      flex-direction: column;
+    }
+  }
+  &__img {
+    width: min(43%, 412px);
+    @include mq(w-768) {
+      width: min(100%, 412px);
+      margin: 0 auto;
+    }
+  }
+  &__mass {
+    flex-grow: 1;
+    p {
+      &:first-child {
+        @include fs-24;
+        color: #fff;
+        text-align: center;
+        span {
+          color: #ffda36;
+          font-size: 1.45em;
+          font-weight: 700;
+        }
+      }
+      &:nth-child(2) {
+        color: $basic-red;
+        @include fs-16;
+        font-weight: 700;
+        width: fit-content;
+        margin: 50px auto 0;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 37%;
+          right: -1.7em;
+          display: inline-block;
+          width: 21px;
+          height: 1px;
+          background-color: #f05028;
+          transform: rotate(-60deg);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 37%;
+          left: -1.7em;
+          display: inline-block;
+          width: 21px;
+          height: 1px;
+          background-color: #f05028;
+          transform: rotate(60deg);
+        }
+      }
+    }
+    a {
+      @include basic-btn;
+      @include fs-24;
+      padding: 30px 10px;
+      margin: 15px auto 0;
+      box-shadow: 0 4px 0 0 #122740;
+      max-width: 450px;
+      &.started {
+        background-color: $basic-red;
+        color: #fff;
+      }
+      &.download {
+        background-color: #fff;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+/* バナー */
+.bnr {
+  &__img {
+    width: min(100%, 335px);
+    margin: 0 auto;
+    @include mq(w-520) {
+      max-width: 250px;
+    }
+  }
+}
+
+/* footer */
+.footer {
+  padding-top: 0;
+  &__nav {
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    @include mq(w-678) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+  &__list {
+    @include fs-16;
+    color: $basic-cyan-blue;
+    column-gap: 30px;
+    li {
+      position: relative;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 28px;
+        background-color: #333;
+        position: absolute;
+        top: -5px;
+        right: -1em;
+        @include mq(w-520) {
+          content: none;
+        }
+      }
+      @include mq(w-520) {
+        width: 46%;
+        text-align: center;
+      }
+      @include mq(w-350) {
+        width: 45%;
+      }
+    }
+    @include mq(w-520) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      row-gap: 10px;
+    }
+  }
+  &__copy {
+    color: #969696;
+    @include fs-13;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+  }
+  @include mq(w-520) {
+    padding-bottom: 100px;
+  }
+}
